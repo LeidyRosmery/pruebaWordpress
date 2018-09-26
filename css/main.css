@@ -1,0 +1,5011 @@
+@charset "UTF-8";
+
+/* Slider */
+
+.slick-slider {
+  position: relative;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.slick-list:focus {
+  outline: none;
+}
+
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slick-track:before,
+.slick-track:after {
+  content: "";
+  display: table;
+}
+
+.slick-track:after {
+  clear: both;
+}
+
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+}
+
+[dir="rtl"] .slick-slide {
+  float: right;
+}
+
+.slick-slide img {
+  display: block;
+}
+
+.slick-slide.slick-loading img {
+  display: none;
+}
+
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+  display: block;
+}
+
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+  display: none;
+}
+
+/* Slider */
+
+.slick-loading .slick-list {
+  background: #fff url("./ajax-loader.gif") center center no-repeat;
+}
+
+/* Icons */
+
+@font-face {
+  font-family: "slick";
+  src: url("./fonts/slick.eot");
+  src: url("./fonts/slick.eot?#iefix") format("embedded-opentype"), url("./fonts/slick.woff") format("woff"), url("./fonts/slick.ttf") format("truetype"), url("./fonts/slick.svg#slick") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Arrows */
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  line-height: 0px;
+  font-size: 0px;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+  outline: none;
+  background: transparent;
+  color: transparent;
+}
+
+.slick-prev:hover:before,
+.slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before {
+  opacity: 1;
+}
+
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {
+  opacity: 0.25;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: "slick";
+  font-size: 20px;
+  line-height: 1;
+  color: white;
+  opacity: 0.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+  left: -25px;
+}
+
+[dir="rtl"] .slick-prev {
+  left: auto;
+  right: -25px;
+}
+
+.slick-prev:before {
+  content: "←";
+}
+
+[dir="rtl"] .slick-prev:before {
+  content: "→";
+}
+
+.slick-next {
+  right: -25px;
+}
+
+[dir="rtl"] .slick-next {
+  left: -25px;
+  right: auto;
+}
+
+.slick-next:before {
+  content: "→";
+}
+
+[dir="rtl"] .slick-next:before {
+  content: "←";
+}
+
+/* Dots */
+
+.slick-dotted.slick-slider {
+  margin-bottom: 30px;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: -25px;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.slick-dots li button {
+  border: 0;
+  background: transparent;
+  display: block;
+  height: 20px;
+  width: 20px;
+  outline: none;
+  line-height: 0px;
+  font-size: 0px;
+  color: transparent;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.slick-dots li button:hover,
+.slick-dots li button:focus {
+  outline: none;
+}
+
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
+  opacity: 1;
+}
+
+.slick-dots li button:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "•";
+  width: 20px;
+  height: 20px;
+  font-family: "slick";
+  font-size: 6px;
+  line-height: 20px;
+  text-align: center;
+  color: black;
+  opacity: 0.25;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-dots li.slick-active button:before {
+  color: black;
+  opacity: 0.75;
+}
+
+/*! Flickity v2.1.2
+https://flickity.metafizzy.co
+---------------------------------------------- */
+
+.flickity-enabled {
+  position: relative;
+}
+
+.flickity-enabled:focus {
+  outline: none;
+}
+
+.flickity-viewport {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.flickity-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* draggable */
+
+.flickity-enabled.is-draggable {
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+/* ---- flickity-button ---- */
+
+.flickity-button {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.75);
+  border: none;
+  color: #333;
+}
+
+.flickity-button:hover {
+  background: white;
+  cursor: pointer;
+}
+
+.flickity-button:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 5px #19F;
+          box-shadow: 0 0 0 5px #19F;
+}
+
+.flickity-button:active {
+  opacity: 0.6;
+}
+
+.flickity-button:disabled {
+  opacity: 0.3;
+  cursor: auto;
+  /* prevent disabled button from capturing pointer up event. #716 */
+  pointer-events: none;
+}
+
+.flickity-button-icon {
+  fill: #333;
+}
+
+/* ---- previous/next buttons ---- */
+
+.flickity-prev-next-button {
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  /* vertically center */
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.flickity-prev-next-button.previous {
+  left: 10px;
+}
+
+.flickity-prev-next-button.next {
+  right: 10px;
+}
+
+/* right to left */
+
+.flickity-rtl .flickity-prev-next-button.previous {
+  left: auto;
+  right: 10px;
+}
+
+.flickity-rtl .flickity-prev-next-button.next {
+  right: auto;
+  left: 10px;
+}
+
+.flickity-prev-next-button .flickity-button-icon {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+}
+
+/* ---- page dots ---- */
+
+.flickity-page-dots {
+  position: absolute;
+  width: 100%;
+  bottom: -25px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1;
+}
+
+.flickity-rtl .flickity-page-dots {
+  direction: rtl;
+}
+
+.flickity-page-dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+  background: #333;
+  border-radius: 50%;
+  opacity: 0.25;
+  cursor: pointer;
+}
+
+.flickity-page-dots .dot.is-selected {
+  opacity: 1;
+}
+
+.breadrumbWrap {
+  display: none;
+}
+
+#main.newMainSection > .container {
+  padding-right: 0;
+  padding-left: 0;
+  overflow: hidden;
+}
+
+#main.newMainSection {
+  margin: 0 !important;
+}
+
+.line-service {
+  margin-top: 10px !important;
+}
+
+#main.newMainSection > .container > .col-md-12 {
+  padding: 0 !important;
+}
+
+.container.breadcrumb.hidden-md.hidden-lg.newMbreadrumb {
+  display: none !important;
+}
+
+#main.newMainSection > .container {
+  width: 100%;
+}
+
+footer .line-service {
+  margin-top: 0 !important;
+  padding-top: 10px !important;
+}
+
+#footer {
+  background: #fff !important;
+  position: relative !important;
+  z-index: 6 !important;
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+.margin-0 {
+  margin: 0;
+}
+
+.hidden-item {
+  display: none;
+}
+
+.letter-bold {
+  font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+  padding-left: 5px;
+  font-size: 1.3em;
+  line-height: 1.2em;
+  padding-bottom: 3px;
+}
+
+.no-bold {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+.bg-opacity {
+  background: rgba(255, 255, 255, 0.8);
+  top: 0;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+}
+
+.bg-opacity_left {
+  left: 50%;
+}
+
+.bg-opacity .content-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #333;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.bg-opacity .content-item p:nth-child(1) {
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
+.bg-opacity .content-item p:nth-child(2) {
+  font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+  font-size: 1.3em;
+  line-height: 1.2em;
+}
+
+.bg-opacity .content-item .wrapper-arrow {
+  position: absolute;
+  right: 0;
+  top: 150%;
+}
+
+.wrap-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.fixed-MenuInternal {
+  z-index: 19;
+  top: 43;
+  position: fixed;
+}
+
+.arrow {
+  background-image: url("../img/icons/1.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-position: 50%;
+  height: 22px;
+  width: 20px;
+  margin-left: 5px;
+}
+
+.arrow-white {
+  position: relative;
+  top: 30%;
+  margin-left: 0;
+  height: 40%;
+  width: 20px;
+  background-size: contain;
+  cursor: pointer;
+  background-image: url("../img/icons/6.svg");
+}
+
+.arrow_left {
+  background-image: url("../img/icons/5.svg");
+}
+
+.arrow-right {
+  top: 60%;
+  left: 80%;
+  position: absolute;
+  -webkit-transform: translate(-80%, -60%);
+      -ms-transform: translate(-80%, -60%);
+          transform: translate(-80%, -60%);
+}
+
+.arrow-collection {
+  left: 84%;
+  position: relative;
+  margin: 0;
+}
+
+.arrow_down {
+  background-image: url("../img/icons/4.svg");
+}
+
+.btn-scroll {
+  position: fixed;
+  z-index: 20;
+  background: #4C9CDD;
+  border-radius: 200px;
+  bottom: 100px;
+  right: 38px;
+  cursor: pointer;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  display: none;
+}
+
+.RenuevaTuCasa_internal__brands .grid-brands {
+  display: grid;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto auto auto auto auto;
+  grid-template-areas: "brand-img1 brand-logo1" "brand-img2 brand-logo2" "brand-img3 brand-logo3" "brand-img4 brand-logo4" "brand-img5 brand-logo5" "brand-img6 brand-logo6";
+  display: -ms-grid;
+  -ms-grid-columns: 50% 50%;
+  -ms-grid-rows: auto auto auto auto auto auto;
+}
+
+.RenuevaTuCasa_internal__brands .grid-brands .brand {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.RenuevaTuCasa_internal__brands .grid-brands .brand img {
+  height: 100%;
+  width: 100%;
+}
+
+.RenuevaTuCasa_internal__brands .grid-brands .brand-img1 {
+  grid-area: brand-img1;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__brands .grid-brands .brand-img2 {
+  grid-area: brand-img2;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__brands .grid-brands .brand-img3 {
+  grid-area: brand-img3;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__brands .grid-brands .brand-img4 {
+  grid-area: brand-img4;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__brands .grid-brands .brand-img5 {
+  grid-area: brand-img5;
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__brands .grid-brands .brand-img6 {
+  grid-area: brand-img6;
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__brands .grid-brands .brand-logo1 {
+  grid-area: brand-logo1;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__brands .grid-brands .brand-logo2 {
+  grid-area: brand-logo2;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__brands .grid-brands .brand-logo3 {
+  grid-area: brand-logo3;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__brands .grid-brands .brand-logo4 {
+  grid-area: brand-logo4;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__brands .grid-brands .brand-logo5 {
+  grid-area: brand-logo5;
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__brands .grid-brands .brand-logo6 {
+  grid-area: brand-logo6;
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__categories {
+  padding: 10px;
+}
+
+.RenuevaTuCasa_internal__categories .hidden-item {
+  display: none;
+}
+
+.RenuevaTuCasa_internal__categories .block-a .grid-container {
+  display: grid;
+  height: 100%;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas: "area-a area-b" "area-c area-b" "area-d area-d" "area-e area-f";
+  display: -ms-grid;
+  -ms-grid-columns: 50% 50%;
+  -ms-grid-rows: auto auto auto auto;
+}
+
+.RenuevaTuCasa_internal__categories .block-a .grid-container .area-a {
+  grid-area: area-a;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__categories .block-a .grid-container .area-b {
+  grid-area: area-b;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__categories .block-a .grid-container .area-c {
+  grid-area: area-c;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__categories .block-a .grid-container .area-d {
+  grid-area: area-d;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+}
+
+.RenuevaTuCasa_internal__categories .block-a .grid-container .area-e {
+  grid-area: area-e;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__categories .block-a .grid-container .area-f {
+  grid-area: area-f;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__categories .block-b .grid-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas: "area-a area-b" "area-a area-c" "area-d area-d" "area-e area-f";
+  display: -ms-grid;
+  -ms-grid-columns: 50% 50%;
+  -ms-grid-rows: auto auto auto auto;
+}
+
+.RenuevaTuCasa_internal__categories .block-b .grid-container .area-a {
+  grid-area: area-a;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__categories .block-b .grid-container .area-b {
+  grid-area: area-b;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__categories .block-b .grid-container .area-c {
+  grid-area: area-c;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__categories .block-b .grid-container .area-d {
+  grid-area: area-d;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+}
+
+.RenuevaTuCasa_internal__categories .block-b .grid-container .area-e {
+  grid-area: area-e;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__categories .block-b .grid-container .area-f {
+  grid-area: area-f;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__categories .title {
+  font-weight: bold;
+  padding: 7px 10px 15px;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+}
+
+.RenuevaTuCasa_internal__categories .item-category {
+  margin: 2.5px;
+}
+
+.RenuevaTuCasa_internal__categories .item-category img {
+  width: 100%;
+}
+
+.RenuevaTuCasa_internal__categories .wrapper-title {
+  height: 37px;
+}
+
+.RenuevaTuCasa_internal__categories .wrapper-title .title-category {
+  padding: 0;
+}
+
+.RenuevaTuCasa_internal__categories .item-category {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  position: relative;
+}
+
+.RenuevaTuCasa_internal__categories .rectangle {
+  height: -webkit-calc(100% - 37px);
+  height: calc(100% - 37px);
+}
+
+.RenuevaTuCasa_internal__categories .rectangle img {
+  height: 100%;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients {
+  display: grid;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto auto auto auto auto auto auto;
+  grid-template-areas: "amb-sala amb-sala" "amb-cocina amb-tip1" "amb-tip2 amb-baño" "amb-dormitorio amb-dormitorio" "amb-terraza amb-lavanderia" "amb-comedor amb-comedor" "amb-oficina amb-tip3" "amb-tip4 amb-mueble";
+  display: -ms-grid;
+  -ms-grid-columns: 50% 50%;
+  -ms-grid-rows: auto auto auto auto auto auto auto auto;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients a {
+  display: block;
+  height: 100%;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .amb {
+  position: relative;
+  padding: 2.5px;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .amb-sala {
+  grid-area: amb-sala;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .amb-cocina {
+  grid-area: amb-cocina;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .amb-tip1 {
+  grid-area: amb-tip1;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .amb-tip2 {
+  grid-area: amb-tip2;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .amb-baño {
+  grid-area: amb-baño;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .amb-dormitorio {
+  grid-area: amb-dormitorio;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .amb-terraza {
+  grid-area: amb-terraza;
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .amb-lavanderia {
+  grid-area: amb-lavanderia;
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .amb-comedor {
+  grid-area: amb-comedor;
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .amb-oficina {
+  grid-area: amb-oficina;
+  -ms-grid-row: 7;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .amb-tip3 {
+  grid-area: amb-tip3;
+  -ms-grid-row: 7;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .amb-tip4 {
+  grid-area: amb-tip4;
+  -ms-grid-row: 8;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .amb-mueble {
+  grid-area: amb-mueble;
+  -ms-grid-row: 8;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .title-item {
+  position: absolute;
+  top: 98%;
+  left: 50%;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1em;
+  /* color: #fff; */
+  text-align: center;
+  -webkit-transform: translate(-50%, -98%);
+      -ms-transform: translate(-50%, -98%);
+          transform: translate(-50%, -98%);
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .title-item_down {
+  top: 95%;
+  -webkit-transform: translate(-50%, -95%);
+      -ms-transform: translate(-50%, -95%);
+          transform: translate(-50%, -95%);
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .img-item {
+  width: 100%;
+  height: 100%;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .img-item_opacity {
+  -webkit-filter: brightness(0.6);
+          filter: brightness(0.6);
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .content-item,
+.RenuevaTuCasa_internal__ambients .grid-ambients .content-tip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #333;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .content-tip {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 75%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .content-tip p:nth-child(1) {
+  font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  line-height: 1.2em;
+  padding-bottom: 5px;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .content-tip p:nth-child(2) {
+  font-size: 1.1em;
+  line-height: 1.2em;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .content-tip .img-tip,
+.RenuevaTuCasa_internal__ambients .grid-ambients .content-tip .txt-tip {
+  float: left;
+  position: relative;
+  margin: 0 auto;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .content-tip .txt-tip {
+  width: 100%;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .content-tip .img-tip {
+  width: 100%;
+  margin-bottom: 0.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+  font-size: 1em;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .content-tip .img-tip img {
+  width: 20%;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .tip-item {
+  height: 100%;
+  top: 0;
+  width: 100%;
+  color: #fff;
+  position: absolute;
+  padding: 10px;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .tip-item__green {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .btn-item {
+  background: #95b855;
+  height: 37px;
+  color: #fff;
+  line-height: 37px;
+  text-align: center;
+  width: 100%;
+  font-size: 1em;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 25px;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .guide-title {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .guide-title img {
+  width: 45%;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .guide-title p {
+  display: inline;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .guide-title .subtitle-deskt {
+  text-align: center;
+  font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+  font-size: 1.2em;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .shopping-guide > p {
+  font-size: 1.1em;
+  line-height: 1.1em;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .shopping-guide .guide-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 4px;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .shopping-guide .num-item {
+  border: 2px solid #fff;
+  border-radius: 63%;
+  color: #fff;
+  text-align: center;
+  padding: 8px 12px;
+}
+
+.RenuevaTuCasa_internal__ambients .grid-ambients .shopping-guide .txt-item {
+  display: inline;
+  padding-left: 9px;
+}
+
+.RenuevaTuCasa_internal__ambients .hidden-item {
+  display: none;
+}
+
+.RenuevaTuCasa_internal__collecctions .hidden-item {
+  display: none;
+}
+
+.RenuevaTuCasa_internal__collecctions .wrapper-blog {
+  height: 100%;
+  padding: 0 10px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: "int-a int-a int-a" "int-b int-b int-b" "int-c int-c int-c";
+}
+
+.RenuevaTuCasa_internal__collecctions .wrapper-blog .int {
+  position: relative;
+  margin: 5px;
+}
+
+.RenuevaTuCasa_internal__collecctions .wrapper-blog .int-a {
+  grid-area: int-a;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__collecctions .wrapper-blog .int-b {
+  grid-area: int-b;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__collecctions .wrapper-blog .int-c {
+  grid-area: int-c;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__collecctions .wrapper-blog .img-item {
+  width: 100%;
+  height: 100%;
+}
+
+.RenuevaTuCasa_internal__ambients-interna .hidden-item {
+  display: none;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__banner {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__banner .int-title {
+  text-decoration: underline;
+  color: #333;
+  padding: 10px;
+  letter-spacing: 2px;
+  font-size: 1.2em;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__banner .wrapper-content {
+  position: relative;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__banner .wrapper-title {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.RenuevaTuCasa_internal__ambients-interna__banner .wrapper-title .title-banner {
+  top: 50%;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.RenuevaTuCasa_internal__ambients-interna__banner .wrapper-title .title-banner p:nth-child(2) {
+  font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+  font-size: 1.4em;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__banner .wrapper-title .title-banner p:nth-child(2):before {
+  content: '';
+  width: 60%;
+  height: 2px;
+  position: absolute;
+  background: #fff;
+  top: 50%;
+  left: -90%;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__banner .wrapper-title .title-banner p:nth-child(2):after {
+  content: '';
+  width: 60%;
+  height: 2px;
+  position: absolute;
+  background: #fff;
+  top: 50%;
+  right: -90%;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__banner .summary {
+  padding: 20px;
+  line-height: 1.5em;
+  font-size: 1.2em;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog {
+  padding-bottom: 20px;
+  border-bottom: solid 1px #E7E7E7;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .wrapper-blog {
+  height: 100%;
+  padding: 0 10px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto auto auto auto auto auto;
+  grid-template-areas: "int-a int-a int-a" "int-b int-b int-b" "int-c int-c int-c" "int-g int-g int-g" "int-d int-d int-d" "int-e int-e int-e" "int-f int-f int-f";
+  display: -ms-grid;
+  -ms-grid-columns: 100%;
+  -ms-grid-rows: auto auto auto auto auto auto auto;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .img-item {
+  width: 100%;
+  height: 100%;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int-a {
+  grid-area: int-a;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int-b {
+  grid-area: int-b;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int-c {
+  grid-area: int-c;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int-g {
+  grid-area: int-g;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int-d {
+  grid-area: int-d;
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int-e {
+  grid-area: int-e;
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int-f {
+  grid-area: int-f;
+  -ms-grid-row: 7;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int {
+  position: relative;
+  margin: 2.5px;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .bg-opacity_full {
+  left: 0;
+  height: 100%;
+  width: 100% !important;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4) !important;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-item,
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-tip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #333;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-tip {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #fff;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-tip p:nth-child(1) {
+  font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  line-height: 1.2em;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-tip p:nth-child(2) {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  padding: 5px 0;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-tip .img-tip,
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-tip .txt-tip {
+  width: 50%;
+  float: left;
+  position: relative;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-tip .img-tip {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-tip .img-tip img {
+  padding-bottom: 6px;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-item {
+  text-transform: uppercase;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-item p:nth-child(1) {
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-item p:nth-child(2) {
+  font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+  font-size: 1.3em;
+  line-height: 1.2em;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity {
+  color: #fff;
+  width: 95%;
+  margin: 0 auto;
+  height: 100%;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .btn-green,
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .txt-tip {
+  width: 50%;
+  float: left;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .btn-green,
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .img-tip {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .btn-green img,
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .img-tip img {
+  width: 20px;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .img-tip {
+  width: 100%;
+  display: block;
+  clear: both;
+  margin-bottom: 10px;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-item .wrapper-arrow,
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .wrapper-arrow {
+  position: absolute;
+  right: 0;
+  top: 150%;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-item .wrapper-arrow_green,
+.RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .wrapper-arrow_green {
+  height: 40px;
+  width: 140px !important;
+  padding: 0;
+  background: #85B94C;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__options .wrapper-options {
+  height: 100%;
+  padding: 0 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: grid;
+  margin-bottom: 5px;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: "int-a int-a " "int-b int-c" "int-d int-d ";
+  display: -ms-grid;
+  -ms-grid-columns: 50% 50%;
+  -ms-grid-rows: auto auto auto;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__options .int-a {
+  grid-area: int-a;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__options .int-b {
+  grid-area: int-b;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__options .int-c {
+  grid-area: int-c;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__options .int-d {
+  grid-area: int-d;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__options .title_ambients {
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__options .title_ambients p {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__options .img-item {
+  width: 100%;
+  height: 100%;
+}
+
+.RenuevaTuCasa_internal__ambients-interna__options .int {
+  position: relative;
+  margin: 2.5px;
+}
+
+.RenuevaTuCasa-content {
+  background-color: #fff;
+  width: 100%;
+}
+
+.RenuevaTuCasa-content a {
+  display: block;
+  height: 100%;
+  color: #333;
+  text-decoration: none;
+}
+
+.RenuevaTuCasa-content .tooltip-info {
+  background: #fff;
+  color: #333;
+  text-align: center;
+  padding: 15px 10px;
+  text-transform: none;
+  text-align: left;
+  z-index: 1;
+  left: 0;
+  width: 95%;
+  font-size: 1.1em;
+  margin: 0 auto;
+}
+
+.RenuevaTuCasa-content .tooltip-info img {
+  padding: 0 0 0 10px;
+}
+
+.RenuevaTuCasa-content .tooltip-info .inf-detail {
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.RenuevaTuCasa-content .btn-scroll {
+  position: fixed;
+  z-index: 20;
+  background: #4C9CDD;
+  border-radius: 200px;
+  bottom: 100px;
+  right: 38px;
+  cursor: pointer;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  display: none;
+}
+
+.RenuevaTuCasa-content .btn-action {
+  border: 1px solid #000;
+  padding: 13px 0;
+  position: relative;
+  width: 67%;
+  margin: 0 auto;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #fff;
+  font-size: 1.1em;
+  line-height: 1.2em;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.RenuevaTuCasa-content .btn-action span:nth-child(2) {
+  font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+  padding-left: 5px;
+  font-size: 1.3em;
+  line-height: 1.2em;
+  padding-bottom: 3px;
+}
+
+.RenuevaTuCasa-content .btn-action-short {
+  width: 96%;
+  font-size: 1em;
+  letter-spacing: 2px;
+}
+
+.RenuevaTuCasa-content .btn-action-alt {
+  margin-bottom: 0;
+  margin-top: 0;
+  width: 98%;
+  font-size: 0.9em;
+}
+
+.RenuevaTuCasa-content .btn-border {
+  color: #000;
+  padding: 13px 0;
+  cursor: pointer;
+  display: block;
+  font-size: 1.1em;
+  font-weight: 500;
+  line-height: 1.2em;
+  text-decoration: none;
+  margin: 20px auto;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  text-align: center;
+  width: 270px;
+  letter-spacing: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.RenuevaTuCasa-content .btn-border svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.RenuevaTuCasa-content .btn-border rect {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1;
+  stroke-dasharray: 422, 0;
+  -webkit-transition-delay: none;
+          transition-delay: none;
+  -webkit-transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.RenuevaTuCasa-content .summary {
+  width: 90%;
+  margin: 0 auto 15px;
+  text-align: center;
+  font-size: em;
+  line-height: 1.2em;
+}
+
+.RenuevaTuCasa-content .pad-main {
+  padding: 2.5px;
+}
+
+.RenuevaTuCasa-content .mg-bottom {
+  margin-bottom: 5px;
+}
+
+.RenuevaTuCasa-content section[class^='RenuevaTuCasa__'] {
+  position: relative;
+  z-index: 8;
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+
+.RenuevaTuCasa-content section[data-tag='section'] {
+  padding: 0;
+  width: 100%;
+  border-bottom: solid 1px #E7E7E7;
+}
+
+.RenuevaTuCasa-content .no-border,
+.RenuevaTuCasa-content section[data-border='no-border'] {
+  border: none;
+}
+
+.RenuevaTuCasa-content .title-section {
+  text-transform: uppercase;
+  width: 60%;
+  background: #fff;
+  margin: 0 auto;
+  position: relative;
+  padding: 15px 0;
+}
+
+.RenuevaTuCasa-content .title-section::before {
+  content: '';
+  width: 25%;
+  height: 2px;
+  position: absolute;
+  background: #B2B2B2;
+  top: 50%;
+  left: -20%;
+}
+
+.RenuevaTuCasa-content .title-section::after {
+  content: '';
+  width: 25%;
+  height: 2px;
+  position: absolute;
+  background: #B2B2B2;
+  top: 50%;
+  right: -20%;
+}
+
+.RenuevaTuCasa-content .title-section p:nth-child(1) {
+  padding: 0;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  letter-spacing: 2px;
+}
+
+.RenuevaTuCasa-content .title-section p:nth-child(2) {
+  line-height: 1em;
+  font-size: 1.5em;
+  padding-top: 4px;
+  letter-spacing: 1px;
+  font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+}
+
+.RenuevaTuCasa-content .title {
+  font-weight: bold;
+  padding: 7px 10px 15px;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+}
+
+.RenuevaTuCasa-content .title-item {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.RenuevaTuCasa-content .title-item p:nth-child(1) {
+  line-height: 1.2em;
+  font-size: 1em;
+  padding-top: 22px;
+}
+
+.RenuevaTuCasa-content .title-item p:nth-child(2) {
+  line-height: 1em;
+  font-size: 1.2em;
+  font-weight: 800;
+  text-align: left;
+}
+
+.RenuevaTuCasa-content .title-item-right {
+  left: 50%;
+}
+
+.RenuevaTuCasa-content .title-item-one {
+  width: 100%;
+  background: transparent;
+  height: 100%;
+  padding: 10px;
+}
+
+.RenuevaTuCasa-banner__wrapper {
+  height: 415px;
+  background-image: url("../img/banner/mobile/banner-mobile.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 100%;
+  width: 100%;
+  position: relative;
+}
+
+@-webkit-keyframes scroll-ani {
+  0% {
+    opacity: 1;
+    top: 29%;
+  }
+
+  15% {
+    opacity: 1;
+    top: 50%;
+  }
+
+  50% {
+    opacity: 0;
+    top: 50%;
+  }
+
+  100% {
+    opacity: 0;
+    top: 29%;
+  }
+}
+
+@keyframes scroll-ani {
+  0% {
+    opacity: 1;
+    top: 29%;
+  }
+
+  15% {
+    opacity: 1;
+    top: 50%;
+  }
+
+  50% {
+    opacity: 0;
+    top: 50%;
+  }
+
+  100% {
+    opacity: 0;
+    top: 29%;
+  }
+}
+
+.RenuevaTuCasa-banner__wrapper .letter {
+  background: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  width: 75%;
+  font-family: "Arial", Helvetica, sans-serif;
+  margin: 0 auto;
+  top: 15%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -15%);
+  -ms-transform: translate(-50%, -15%);
+  transform: translate(-50%, -15%);
+  position: absolute;
+  padding: 27px 15px;
+}
+
+.RenuevaTuCasa-banner__wrapper .letter p:nth-child(1) {
+  font-size: 1.2em;
+  line-height: 1.4em;
+  letter-spacing: 5px;
+}
+
+.RenuevaTuCasa-banner__wrapper .letter p:nth-child(2) {
+  color: #4698E2;
+  font-size: 2.6em;
+  line-height: 1em;
+  font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.RenuevaTuCasa-banner__wrapper .letter p:nth-child(3) {
+  line-height: 1.2em;
+  font-size: 1.1em;
+  padding: 10px 0 0;
+}
+
+.RenuevaTuCasa-banner__wrapper .scroll-indicator {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 20px;
+  z-index: 9;
+}
+
+.RenuevaTuCasa-banner__wrapper .scroll-indicator .btn-mouse {
+  display: block;
+  width: 26px;
+  height: 47px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 2px solid #fff;
+  border-radius: 23px;
+  position: relative;
+  cursor: pointer;
+}
+
+.RenuevaTuCasa-banner__wrapper .scroll-indicator .mouse-movement {
+  position: absolute;
+  display: block;
+  top: 29%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: #fff;
+  border-radius: 50%;
+  -webkit-animation: scroll-ani 2s linear infinite;
+          animation: scroll-ani 2s linear infinite;
+}
+
+.RenuevaTuCasa__menu__wrapper .slider-menu {
+  outline: none;
+  padding: 10px 0 25px;
+  border-bottom: solid 1px #E7E7E7;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.RenuevaTuCasa__menu__wrapper .slider-menu .flickity-button {
+  background: transparent;
+}
+
+.RenuevaTuCasa__menu__wrapper .slider-menu .flickity-prev-next-button {
+  top: 40%;
+  width: 30px;
+  height: 60px;
+  border-radius: 0;
+}
+
+.RenuevaTuCasa__menu__wrapper .slider-menu .flickity-prev-next-button.previous {
+  top: 40%;
+  left: -10px !important;
+  height: 0;
+}
+
+.RenuevaTuCasa__menu__wrapper .slider-menu .flickity-prev-next-button.next {
+  right: -10px !important;
+  height: 0;
+}
+
+.RenuevaTuCasa__menu__wrapper .slider-menu .flickity-button:disabled {
+  display: none;
+}
+
+.RenuevaTuCasa__menu__wrapper .slider-menu .item-menu {
+  margin: 0;
+  padding: 0 10px;
+}
+
+.RenuevaTuCasa__menu__wrapper .slider-menu .item-menu a {
+  text-decoration: none;
+  height: 100%;
+  display: block;
+  color: #000;
+  width: 100%;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.RenuevaTuCasa__menu__wrapper .slider-menu .item-menu a:hover {
+  color: #0163A9;
+  -webkit-transition: all 0.10s;
+  transition: all 0.10s;
+}
+
+.RenuevaTuCasa__menu__wrapper .slider-menu .item-menu a:hover .wrapper-icon-menu {
+  border: 2px solid #0163A9;
+  padding: 5px;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.RenuevaTuCasa__menu__wrapper .slider-menu .item-menu a:hover .wrapper-icon-menu img {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+      transform: scale(0.95);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.RenuevaTuCasa__menu__wrapper .slider-menu .item-menu a .wrapper-icon-menu {
+  height: auto;
+  border-radius: 77px;
+  width: 120px;
+  margin: 0 auto;
+}
+
+.RenuevaTuCasa__menu__wrapper .slider-menu .item-menu a .wrapper-icon-menu img {
+  outline: none;
+  border-radius: 300px;
+}
+
+.RenuevaTuCasa__menu__wrapper .slider-menu .item-menu a p {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: "Mundial_Rusia_2018-miso", sans-serif;
+  margin-top: 10px;
+}
+
+.RenuevaTuCasa__categories__wrapper {
+  background: #fff;
+}
+
+.RenuevaTuCasa__categories__wrapper .grid-categories {
+  display: grid;
+  height: 100%;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto auto auto;
+  display: -ms-grid;
+  -ms-grid-columns: 50% 50%;
+  -ms-grid-rows: auto auto auto auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-template-areas: "area-a area-b" "area-c area-b" "area-d area-d" "area-e area-f";
+}
+
+.RenuevaTuCasa__categories__wrapper .grid-categories .area-a {
+  grid-area: area-a;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa__categories__wrapper .grid-categories .area-b {
+  grid-area: area-b;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa__categories__wrapper .grid-categories .area-c {
+  grid-area: area-c;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa__categories__wrapper .grid-categories .area-d {
+  grid-area: area-d;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+}
+
+.RenuevaTuCasa__categories__wrapper .grid-categories .area-e {
+  grid-area: area-e;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa__categories__wrapper .grid-categories .area-f {
+  grid-area: area-f;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+}
+
+.RenuevaTuCasa__categories__wrapper .item-category img {
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+}
+
+.RenuevaTuCasa__categories__wrapper .wrapper-title {
+  height: 37px;
+}
+
+.RenuevaTuCasa__categories__wrapper .wrapper-title .title-category {
+  padding: 0;
+}
+
+.RenuevaTuCasa__categories__wrapper .item-category {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  position: relative;
+}
+
+.RenuevaTuCasa__categories__wrapper .rectangle {
+  height: -webkit-calc(100% - 37px);
+  height: calc(100% - 37px);
+}
+
+.RenuevaTuCasa__categories__wrapper .rectangle .img-rectangle {
+  height: 100%;
+}
+
+.RenuevaTuCasa__categories__wrapper .item-category img,
+.RenuevaTuCasa__categories__wrapper .rectangle img {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.RenuevaTuCasa__newest__wrapper {
+  background: #fff;
+}
+
+.RenuevaTuCasa__newest__wrapper .title-product {
+  text-align: left;
+  padding: 10px 10px 18px 0;
+  letter-spacing: 0;
+}
+
+.RenuevaTuCasa__newest__wrapper .title-product p:nth-child(2) {
+  line-height: 1.5em;
+  font-size: 1.1em;
+  text-transform: capitalize;
+}
+
+.RenuevaTuCasa__newest__wrapper .title-product p:nth-child(3) {
+  line-height: 1.3em;
+  text-transform: uppercase;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.RenuevaTuCasa__newest__wrapper .combo-imbatible {
+  position: absolute;
+  right: 0;
+  background-image: url("../img/products/logo_imbatible.png");
+  left: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 22px;
+  width: 60px;
+  top: 64%;
+  left: 55%;
+}
+
+.RenuevaTuCasa__newest__wrapper .item-product {
+  background: #E7E7E7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 30px 0;
+}
+
+.RenuevaTuCasa__yourstyle {
+  background: #fff;
+}
+
+.RenuevaTuCasa__shops__wrapper .store .slick-arrow {
+  height: 70px;
+  background: rgba(255, 255, 255, 0.8);
+
+  z-index: 1;
+  top: 100%;
+  width: 35px;
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center;
+  -webkit-transform: translate(0, -100%);
+      -ms-transform: translate(0, -100%);
+          transform: translate(0, -100%);
+}
+
+.RenuevaTuCasa__shops__wrapper .store .slick-arrow.slick-prev {
+  left: 0;
+  background-image: url("../img/tiendas/arrowPrev.png");
+}
+
+.RenuevaTuCasa__shops__wrapper .store .slick-arrow.slick-prev:before {
+  content: '';
+}
+
+.RenuevaTuCasa__shops__wrapper .store .slick-slider .slick-list,
+.RenuevaTuCasa__shops__wrapper .store .slick-slider .slick-track,
+.RenuevaTuCasa__shops__wrapper .store .slider-info {
+  height: 100%;
+}
+
+.RenuevaTuCasa__shops__wrapper .store .slick-arrow.slick-next {
+  right: 0;
+  background-image: url("../img/tiendas/arrowNext.png");
+}
+
+.RenuevaTuCasa__shops__wrapper .store .slick-arrow.slick-next:before {
+  content: '';
+}
+
+.RenuevaTuCasa__shops__wrapper .store .item-img {
+  outline: none;
+}
+
+.RenuevaTuCasa__shops__wrapper .store .item-info {
+  background: #F2F2F2;
+  padding: 20px 0;
+  outline: none;
+  background: #F2F2F2;
+  padding: 20px 0;
+  outline: none;
+}
+
+.RenuevaTuCasa__shops__wrapper .store .text-info {
+  padding: 10px 5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.RenuevaTuCasa__shops__wrapper .store .text-info p:nth-child(1) {
+  font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+  font-size: 2em;
+  color: #333;
+  line-height: 1.5em;
+}
+
+.RenuevaTuCasa__shops__wrapper .store .text-info p:nth-child(2) {
+  font-size: 1em;
+  color: #333;
+}
+
+.RenuevaTuCasa__shops__wrapper .list-store {
+  background: #fff;
+}
+
+.RenuevaTuCasa__shops__wrapper .list-store .head-list {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 25px 0 15px;
+  border-bottom: 1px solid #D7D5D3;
+}
+
+.RenuevaTuCasa__shops__wrapper .list-store .head-list span:nth-child(1) {
+  font-size: 1.2em;
+  color: #333;
+  letter-spacing: 2px;
+}
+
+.RenuevaTuCasa__shops__wrapper .list-store .head-list span:nth-child(2) {
+  font-size: 1.3em;
+  font-weight: 900;
+  color: #333;
+  line-height: 1em;
+}
+
+.RenuevaTuCasa__shops__wrapper .list-store .br-left {
+  border-left: 1px solid #D7D5D3;
+}
+
+.RenuevaTuCasa__shops__wrapper .list-store .item-info-store {
+  border-bottom: 1px solid #D7D5D3;
+  text-transform: uppercase;
+  padding: 20px 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.RenuevaTuCasa__shops__wrapper .list-store .item-info-store .title-store {
+  font-size: 1.1em;
+  color: #333;
+  line-height: 1.5em;
+}
+
+.RenuevaTuCasa__shops__wrapper .list-store .item-info-store .district-store {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #333;
+  line-height: 1em;
+}
+
+.RenuevaTuCasa__shops__wrapper .list-store .item-info-store .btn-detail {
+  float: right;
+  padding-top: 20px;
+  color: #333;
+  display: inline-block;
+  line-height: 1em;
+  padding-bottom: 2px;
+}
+
+.RenuevaTuCasa__shops__wrapper .list-store .item-info-store .btn-detail .plus-btn {
+  font-size: 2em;
+  vertical-align: sub;
+  padding-left: 5px;
+}
+
+.RenuevaTuCasa__shops__wrapper .tooltip-info {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  font-size: 1em;
+}
+
+.RenuevaTuCasa__shops__wrapper .tooltip-info:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -15px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: #000 transparent transparent transparent;
+}
+
+.RenuevaTuCasa_internal a {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: #333;
+}
+
+.RenuevaTuCasa_internal .btn-border {
+  color: #000;
+  padding: 16px 0;
+  cursor: pointer;
+  display: block;
+  font-size: 1.2em;
+  font-weight: 500;
+  line-height: 1.2em;
+  text-decoration: none;
+  margin: 35px auto;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  text-align: center;
+  width: 290px;
+  letter-spacing: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.RenuevaTuCasa_internal .btn-border svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.RenuevaTuCasa_internal .btn-border rect {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1;
+  stroke-dasharray: 422, 0;
+  -webkit-transition-delay: none;
+          transition-delay: none;
+  -webkit-transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.RenuevaTuCasa_internal .title-section {
+  background: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  width: 60%;
+  margin: 0 auto;
+  position: relative;
+  padding: 15px 0;
+}
+
+.RenuevaTuCasa_internal .title-section::before {
+  content: '';
+  width: 25%;
+  height: 1px;
+  position: absolute;
+  background: #B2B2B2;
+  top: 48.5%;
+  left: -20%;
+}
+
+.RenuevaTuCasa_internal .title-section::after {
+  content: '';
+  width: 25%;
+  height: 1px;
+  position: absolute;
+  background: #B2B2B2;
+  top: 48.5%;
+  right: -20%;
+}
+
+.RenuevaTuCasa_internal .title-section p:nth-child(1) {
+  padding: 0;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  letter-spacing: 2px;
+}
+
+.RenuevaTuCasa_internal .title-section p:nth-child(2) {
+  line-height: 1em;
+  font-size: 1.5em;
+  padding-top: 4px;
+  letter-spacing: 1px;
+  font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+}
+
+.RenuevaTuCasa_internal .text-section {
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  font-size: 1.1em;
+}
+
+.RenuevaTuCasa_internal__header {
+  text-align: center;
+}
+
+.RenuevaTuCasa_internal__header .header-content {
+  width: 100%;
+  height: 90px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #fff;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.RenuevaTuCasa_internal__header .header-content .letter {
+  background: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  width: 75%;
+  margin: 0 auto;
+  position: relative;
+  padding: 10px;
+}
+
+.RenuevaTuCasa_internal__header .header-content .letter p:nth-child(1) {
+  font-size: 1.2em;
+  line-height: 1.4em;
+  letter-spacing: 5px;
+}
+
+.RenuevaTuCasa_internal__header .header-content .letter p:nth-child(2) {
+  color: #4698E2;
+  font-size: 2.6em;
+  line-height: 1em;
+  font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.RenuevaTuCasa_internal__ambients,
+.RenuevaTuCasa_internal__ambients-interna,
+.RenuevaTuCasa_internal__brands,
+.RenuevaTuCasa_internal__categories,
+.RenuevaTuCasa_internal__collecctions {
+  border-bottom: solid 1px #E7E7E7;
+}
+
+.RenuevaTuCasa_internal__ambients .hidden-item .int:last-child,
+.RenuevaTuCasa_internal__ambients-interna .hidden-item .int:last-child,
+.RenuevaTuCasa_internal__brands .hidden-item .int:last-child,
+.RenuevaTuCasa_internal__categories .hidden-item .int:last-child,
+.RenuevaTuCasa_internal__collecctions .hidden-item .int:last-child {
+  margin-bottom: 20px;
+}
+
+.RenuevaTuCasa_internal__footer {
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+.RenuevaTuCasa_internal__footer .title-footer {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 7px 10px 15px;
+}
+
+.RenuevaTuCasa_internal__footer .title-footer p:nth-child(1) {
+  line-height: 1.2em;
+  font-size: 1em;
+  padding-top: 22px;
+}
+
+.RenuevaTuCasa_internal__footer .title-footer p:nth-child(2) {
+  line-height: 1em;
+  font-size: 1.2em;
+  font-weight: 800;
+  text-align: left;
+}
+
+.RenuevaTuCasa_internal__footer .title-footer-one {
+  width: 100%;
+  background: transparent;
+  height: 100%;
+  padding: 10px;
+}
+
+.RenuevaTuCasa_internal__footer .btn-action {
+  padding: 13px 0;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #fff;
+  font-size: 1.1em;
+  line-height: 1.2em;
+  letter-spacing: 2px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.RenuevaTuCasa_internal__footer .slider-footer .flickity-page-dots {
+  bottom: -35px;
+}
+
+.RenuevaTuCasa_internal__footer .slider-footer .flickity-page-dots .dot {
+  background: #9b999b;
+  width: 15px;
+  height: 15px;
+  opacity: 1;
+  margin: 0 5px;
+}
+
+.RenuevaTuCasa_internal__footer .slider-footer .flickity-page-dots .dot.is-selected {
+  opacity: 1;
+  background: #fff;
+  border: solid #060006 2px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.RenuevaTuCasa_internal__footer .slider-footer .flickity-prev-next-button {
+  border-radius: 0;
+  outline: none;
+}
+
+.RenuevaTuCasa_internal__footer .slider-footer .flickity-prev-next-button.previous {
+  display: none;
+}
+
+.RenuevaTuCasa_internal__footer .slider-footer .flickity-prev-next-button.next {
+  right: 0;
+  width: 34px;
+  height: 38%;
+}
+
+.RenuevaTuCasa_internal__footer .slider-footer .item-footer {
+  width: 80%;
+  margin-right: 23px;
+}
+
+.back-img {
+  background-image: url("../img/modal/sillas.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.link-menu {
+  display: block;
+  height: 100%;
+  color: #333;
+}
+
+.link-menu:hover {
+  text-decoration: none;
+  color: #009EE3;
+}
+
+.fancy-btn {
+  background: #4C9CDD;
+  width: 65px;
+  z-index: 20;
+  height: 65px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border-radius: 170px;
+  color: #fff;
+  top: 70px;
+  right: 5px;
+  position: fixed;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  padding: 10px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.2em;
+}
+
+.fancy-btn .line {
+  width: 70%;
+  height: 1px;
+  background: #fff;
+  display: block;
+  margin: 1.5px auto;
+}
+
+.fancy-btn .line-second {
+  width: 50%;
+  height: 1px;
+}
+
+.fancy-btn.topMenu {
+  top: 13px;
+}
+
+div #menu-main .modal-content {
+  background: #fff;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+div #menu-main .modal.in .modal-dialog {
+  -webkit-transform: scale(1, 1) !important;
+  -ms-transform: scale(1, 1) !important;
+  transform: scale(1, 1) !important;
+}
+
+div #menu-main .modal.fade .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+div #menu-main .modal.fade.in {
+  position: fixed;
+}
+
+div #menu-main .modal-dialog {
+  margin: 0;
+  height: 100%;
+  background: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+div #menu-main .list-menu {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5em;
+  line-height: 1.3em;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+div #menu-main .list-menu li {
+  padding: 0.4em;
+  cursor: pointer;
+}
+
+div #menu-main .list-menu li:hover {
+  color: #009EE3;
+}
+
+div #menu-main .modal-body {
+  height: 100%;
+}
+
+div #menu-main .modal-header {
+  border: none;
+  padding: 0 !important;
+}
+
+div #menu-main .close {
+  border: 1px solid gray !important;
+  border-radius: 20px !important;
+  width: 40px !important;
+  height: 40px !important;
+  position: relative;
+  opacity: 1;
+  margin: 0;
+  top: 0;
+  right: 0;
+  background-image: url("../img/modal/cerrar.png") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+#menu-main .letter {
+  background: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  width: 75%;
+  font-family: "Arial", Helvetica, sans-serif;
+  margin: 0 auto;
+  position: relative;
+  -webkit-transform: translateY(20px);
+  -ms-transform: translateY(20px);
+  transform: translateY(20px);
+  padding: 27px 15px;
+}
+
+#menu-main .letter p:nth-child(1) {
+  font-size: 1.2em;
+  line-height: 1.4em;
+  letter-spacing: 5px;
+}
+
+#menu-main .letter p:nth-child(2) {
+  color: #4698E2;
+  font-size: 2.6em;
+  line-height: 1em;
+  font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+#menu-main .letter p:nth-child(3) {
+  line-height: 1.2em;
+  font-size: 1.1em;
+  padding: 10px 0 0;
+}
+
+section.modals-info div[id^="store"] .modal-dialog {
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 83%;
+  margin: 0;
+  font-size: 1.1em;
+}
+
+section.modals-info div[id^="store"] .modal-body {
+  padding: 0;
+}
+
+section.modals-info div[id^="store"] .modal-header {
+  border: none;
+  padding: 15px 25px 0;
+  width: 95%;
+  background: #fff;
+  margin: 0 auto;
+}
+
+section.modals-info div[id^="store"] .modal-header p:nth-child(2) {
+  font-family: "Arial", Helvetica, sans-serif;
+  letter-spacing: 2px;
+  font-size: 1em;
+}
+
+section.modals-info div[id^="store"] .modal-header p:nth-child(3) {
+  font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+  font-size: 1.4em;
+}
+
+section.modals-info div[id^="store"] .modal-title {
+  text-transform: uppercase;
+}
+
+section.modals-info div[id^="store"] .modal-header .close {
+  margin-top: -2px;
+  opacity: 1;
+  font-size: 3em;
+  font-weight: normal;
+}
+
+/**
+ * Define fonts
+ */
+
+@font-face {
+  font-family: "RenuevaTuCasa-handsean";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/handsean/handsean-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/handsean/handsean-webfont.woff2") format("woff2"), url("../fonts/handsean/handsean-webfont.woff") format("woff"), url("../fonts/handsean/handsean-webfont.ttf") format("truetype"), url("../fonts/handsean/handsean-webfont.svg#RenuevaTuCasa-handsean") format("svg");
+}
+
+@font-face {
+  font-family: "RenuevaTuCasa-miso";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/miso/miso-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/miso/miso-webfont.woff2") format("woff2"), url("../fonts/miso/miso-webfont.woff") format("woff"), url("../fonts/miso/miso-webfont.ttf") format("truetype"), url("../fonts/miso/miso-webfont.svg#RenuevaTuCasa-miso") format("svg");
+}
+
+@font-face {
+  font-family: "RenuevaTuCasa-miso-bold";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/miso-bold/miso-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/miso-bold/miso-bold-webfont.woff2") format("woff2"), url("../fonts/miso-bold/miso-bold-webfont.woff") format("woff"), url("../fonts/miso-bold/miso-bold-webfont.ttf") format("truetype"), url("../fonts/miso-bold/miso-bold-webfont.svg#RenuevaTuCasa-miso-bold") format("svg");
+}
+
+@font-face {
+  font-family: "RenuevaTuCasa-miso-light";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/miso-light/miso-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/miso-light/miso-light-webfont.woff2") format("woff2"), url("../fonts/miso-light/miso-light-webfont.woff") format("woff"), url("../fonts/miso-light/miso-light-webfont.ttf") format("truetype"), url("../fonts/miso-light/miso-light-webfont.svg#RenuevaTuCasa-miso-light") format("svg");
+}
+
+@font-face {
+  font-family: "RenuevaTuCasa-miso-regular";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/miso/miso-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/miso/miso-regular-webfont.woff2") format("woff2"), url("../fonts/miso/miso-regular-webfont.woff") format("woff"), url("../fonts/miso/miso-regular-webfont.ttf") format("truetype"), url("../fonts/miso/miso-regular-webfont.svg#RenuevaTuCasa-miso-regular") format("svg");
+}
+
+@font-face {
+  font-family: "RenuevaTuCasa-black";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/arial/ariblk.eot?#iefix") format("embedded-opentype"), url("../fonts/arial/ariblk.woff2") format("woff2"), url("../fonts/arial/ariblk.woff") format("woff"), url("../fonts/arial/ariblk.ttf") format("truetype"), url("../fonts/arial/ariblk.svg#RenuevaTuCasa-black") format("svg");
+}
+
+@media (min-width: 350px) {
+  div #menu-main .list-menu li {
+    padding: 0.5em;
+    font-weight: 800;
+  }
+}
+
+@media (min-width: 768px) {
+  .no-bold {
+    width: auto;
+  }
+
+  .bg-opacity .content-item p:nth-child(1) {
+    font-size: 2.1em;
+    line-height: 1.4em;
+  }
+
+  .bg-opacity .content-item p:nth-child(2) {
+    font-size: 2.4em;
+    line-height: 1.4em;
+  }
+
+  .btn-scroll {
+    height: 82px;
+    width: 82px;
+    right: 25px;
+  }
+
+  .RenuevaTuCasa_internal__categories .title {
+    font-size: 1.6em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .title-item {
+    width: 80%;
+    font-size: 2em;
+    top: 95%;
+    -webkit-transform: translate(-50%, -95%);
+        -ms-transform: translate(-50%, -95%);
+            transform: translate(-50%, -95%);
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .title-item_down {
+    top: 90%;
+    -webkit-transform: translate(-50%, -90%);
+        -ms-transform: translate(-50%, -90%);
+            transform: translate(-50%, -90%);
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .content-tip p:nth-child(1) {
+    font-size: 1.6em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .content-tip p:nth-child(2) {
+    font-size: 1.5em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .btn-item {
+    width: 70%;
+    height: 58px;
+    font-size: 1.4em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .guide-title .title-deskt {
+    display: block;
+    text-align: center;
+    font-size: 1.4em;
+    letter-spacing: 1px;
+    line-height: 2em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .guide-title .subtitle-deskt {
+    font-size: 1.6em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .shopping-guide > p {
+    font-size: 1.6em;
+    line-height: 1.3em;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__banner .summary {
+    height: 110px;
+    line-height: 110px;
+    padding: 0;
+    font-size: 1.6em;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-item p:nth-child(1) {
+    font-size: 2.1em;
+    line-height: 1.4em;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-item p:nth-child(2) {
+    font-size: 2.4em;
+    line-height: 1.4em;
+  }
+
+  .RenuevaTuCasa-content .btn-scroll {
+    height: 82px;
+    width: 82px;
+    right: 25px;
+  }
+
+  .RenuevaTuCasa-content .btn-action {
+    padding: 28px 0;
+    font-size: 1.5em;
+  }
+
+  .RenuevaTuCasa-content .btn-action-short {
+    font-size: 1.1em;
+  }
+
+  .RenuevaTuCasa-content .btn-action-alt {
+    width: 72%;
+    text-align: center;
+    font-size: 1.1em;
+  }
+
+  .RenuevaTuCasa-content .summary {
+    font-size: 1.5em;
+    line-height: 1.4em;
+  }
+
+  .RenuevaTuCasa-content section[data-tag='section'] {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .RenuevaTuCasa-content .title-section p:nth-child(1) {
+    font-size: 1.8em;
+  }
+
+  .RenuevaTuCasa-content .title-section p:nth-child(2) {
+    font-size: 2em;
+  }
+
+  .RenuevaTuCasa-content .title {
+    font-size: 1.6em;
+  }
+
+  .RenuevaTuCasa-banner__wrapper .letter {
+    width: 50%;
+  }
+
+  .RenuevaTuCasa-banner__wrapper .letter p:nth-child(1) {
+    font-size: 1.7em;
+  }
+
+  .RenuevaTuCasa-banner__wrapper .letter p:nth-child(2) {
+    font-size: 4em;
+    line-height: 1em;
+  }
+
+  .RenuevaTuCasa-banner__wrapper .letter p:nth-child(3) {
+    font-size: 1.3em;
+    line-height: 1.4em;
+  }
+
+  .RenuevaTuCasa__menu__wrapper .slider-menu .item-menu a .wrapper-icon-menu {
+    width: 210px;
+    padding: 10px;
+    border-radius: 80px;
+  }
+
+  .RenuevaTuCasa__menu__wrapper .slider-menu .item-menu a p {
+    font-size: 1.5em;
+  }
+
+  .RenuevaTuCasa__newest__wrapper .item-product {
+    padding: 20px 0;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .store .text-info {
+    text-align: center;
+    padding-left: 25px;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .store .text-info p:nth-child(1) {
+    font-size: 1.8em;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .list-store {
+    width: 86%;
+    margin: 0 auto;
+  }
+
+  .RenuevaTuCasa_internal .title-section p:nth-child(1) {
+    font-size: 1.8em;
+  }
+
+  .RenuevaTuCasa_internal .title-section p:nth-child(2) {
+    font-size: 2em;
+  }
+
+  .RenuevaTuCasa_internal .text-section {
+    padding: 25px;
+    font-size: 1.5em;
+    line-height: 1.3em;
+  }
+
+  .RenuevaTuCasa_internal__header .header-content {
+    height: 120px;
+  }
+
+  .RenuevaTuCasa_internal__header .header-content .letter {
+    width: 50%;
+  }
+
+  .RenuevaTuCasa_internal__header .header-content .letter p:nth-child(1) {
+    font-size: 1.7em;
+  }
+
+  .RenuevaTuCasa_internal__header .header-content .letter p:nth-child(2) {
+    font-size: 4em;
+    line-height: 1em;
+  }
+
+  .RenuevaTuCasa_internal__ambients,
+  .RenuevaTuCasa_internal__ambients-interna,
+  .RenuevaTuCasa_internal__brands,
+  .RenuevaTuCasa_internal__categories,
+  .RenuevaTuCasa_internal__collecctions {
+    width: 85%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+  }
+
+  .RenuevaTuCasa_internal__footer .btn-action {
+    padding: 28px 0;
+    width: 50%;
+    font-size: 1.1em;
+  }
+
+  .fancy-btn {
+    right: 60px;
+    top: 80px;
+    width: 80px;
+    height: 80px;
+    font-size: 1.4em;
+    font-weight: 800;
+    line-height: 1.4em;
+  }
+
+  div #menu-main .list-menu li {
+    padding: .8em;
+    font-size: 1.4em;
+  }
+
+  #menu-main .letter {
+    width: 50%;
+  }
+
+  #menu-main .letter p:nth-child(1) {
+    font-size: 1.7em;
+  }
+
+  #menu-main .letter p:nth-child(2) {
+    font-size: 4em;
+    line-height: 1em;
+  }
+
+  #menu-main .letter p:nth-child(3) {
+    font-size: 1.3em;
+    line-height: 1.4em;
+  }
+
+  section.modals-info div[id^="store"] .modal-dialog {
+    width: 60%;
+  }
+}
+
+@media (min-width: 992px) {
+  .bg-opacity_home {
+    left: 50%;
+  }
+
+  .bg-opacity .content-item {
+    text-align: left;
+  }
+
+  .bg-opacity .content-item p:nth-child(1) {
+    font-size: 1.5em;
+    line-height: 1.8em;
+  }
+
+  .bg-opacity .content-item p:nth-child(2) {
+    font-size: 2em;
+    line-height: 1.2em;
+  }
+
+  .bg-opacity .content-item_home p:nth-child(1) {
+    font-size: 1.2em;
+    line-height: 1.8em;
+  }
+
+  .bg-opacity .content-item_home p:nth-child(2) {
+    font-size: 1.6em;
+    line-height: 1em;
+  }
+
+  .bg-opacity .content-item .wrapper-arrow {
+    right: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .bg-opacity .content-item .wrapper-arrow span {
+    font-size: 1.5em;
+    vertical-align: middle;
+  }
+
+  .fixed-MenuInternal {
+    top: 40px;
+  }
+
+  .arrow-white {
+    width: 40px;
+    height: 32px;
+  }
+
+  .arrow-white {
+    margin-left: 0 !important;
+    width: 30px;
+    height: 32px;
+    top: 9px;
+  }
+
+  .arrow {
+    background-size: contain;
+    background-position: bottom;
+    height: 30px;
+    width: 40px;
+    margin-left: 10px;
+  }
+
+  .btn-scroll {
+    bottom: 140px;
+    height: 50px;
+    width: 50px;
+    right: 70px;
+  }
+
+  .RenuevaTuCasa_internal__brands .grid-brands .brand {
+    padding: 0 10px 20px;
+  }
+
+  .RenuevaTuCasa_internal__brands .grid-brands div[class^='brand brand-img'] {
+    padding-bottom: 0;
+  }
+
+  .RenuevaTuCasa_internal__brands .grid-brands {
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    -ms-grid-columns: 33.33% 33.33% 33.33%;
+    -ms-grid-rows: auto auto auto auto;
+    grid-template-areas: "brand-img1 brand-img2 brand-img3 " "brand-logo1 brand-logo2 brand-logo3" "brand-img4 brand-img5 brand-img6" "brand-logo4 brand-logo5 brand-logo6";
+  }
+
+  .RenuevaTuCasa_internal__brands .grid-brands .brand-img1 {
+    grid-area: brand-img1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__brands .grid-brands .brand-img2 {
+    grid-area: brand-img2;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__brands .grid-brands .brand-img3 {
+    grid-area: brand-img3;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__brands .grid-brands .brand-img4 {
+    grid-area: brand-img4;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__brands .grid-brands .brand-img5 {
+    grid-area: brand-img5;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__brands .grid-brands .brand-img6 {
+    grid-area: brand-img6;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__brands .grid-brands .brand-logo1 {
+    grid-area: brand-logo1;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__brands .grid-brands .brand-logo2 {
+    grid-area: brand-logo2;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__brands .grid-brands .brand-logo3 {
+    grid-area: brand-logo3;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__brands .grid-brands .brand-logo4 {
+    grid-area: brand-logo4;
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__brands .grid-brands .brand-logo5 {
+    grid-area: brand-logo5;
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__brands .grid-brands .brand-logo6 {
+    grid-area: brand-logo6;
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__categories {
+    padding: 0;
+  }
+
+  .RenuevaTuCasa_internal__categories .hidden-item {
+    display: block;
+  }
+
+  .RenuevaTuCasa_internal__categories .block-a .grid-container {
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto auto;
+    width: 100%;
+    margin: 0 auto;
+    grid-template-areas: "area-a area-b area-d area-d" "area-c area-b area-e area-f";
+    -ms-grid-columns: 25% 25% 25% 25%;
+    -ms-grid-rows: auto auto;
+  }
+
+  .RenuevaTuCasa_internal__categories .block-a .grid-container .area-d {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+
+  .RenuevaTuCasa_internal__categories .block-a .grid-container .area-e {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+  }
+
+  .RenuevaTuCasa_internal__categories .block-a .grid-container .area-f {
+    -ms-grid-row: 2;
+    -ms-grid-column: 4;
+  }
+
+  .RenuevaTuCasa_internal__categories .block-b .grid-container {
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto auto;
+    width: 100%;
+    margin: 0 auto;
+    grid-template-areas: "area-d area-d area-a area-b" "area-e area-f area-a area-c";
+    -ms-grid-columns: 25% 25% 25% 25%;
+    -ms-grid-rows: auto auto;
+  }
+
+  .RenuevaTuCasa_internal__categories .block-b .grid-container .area-a {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__categories .block-b .grid-container .area-b {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__categories .block-b .grid-container .area-c {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__categories .block-b .grid-container .area-d {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+  }
+
+  .RenuevaTuCasa_internal__categories .block-b .grid-container .area-e {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__categories .block-b .grid-container .area-f {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__categories .title {
+    font-size: 1.2em;
+  }
+
+  .RenuevaTuCasa_internal__categories .item-category {
+    margin: 2.5px;
+  }
+
+  .RenuevaTuCasa_internal__categories .item-category img {
+    padding: 10px 10px 50px;
+  }
+
+  .RenuevaTuCasa_internal__categories .wrapper-title {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -100%);
+        -ms-transform: translate(-50%, -100%);
+            transform: translate(-50%, -100%);
+  }
+
+  .RenuevaTuCasa_internal__categories .rectangle {
+    height: -webkit-calc(100% - 0px);
+    height: calc(100% - 0px);
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients {
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
+    grid-template-areas: "amb-sala amb-sala amb-tip1" "amb-sala amb-sala amb-baño" "amb-cocina amb-tip2 amb-baño" "amb-cocina amb-dormitorio amb-dormitorio" "amb-terraza amb-dormitorio amb-dormitorio" "amb-lavanderia amb-comedor amb-comedor" "amb-lavanderia amb-comedor amb-comedor" "amb-oficina amb-oficina amb-tip3" "amb-oficina amb-oficina amb-mueble" "amb-tip4 amb-tip4 amb-mueble";
+    display: -ms-grid;
+    -ms-grid-columns: 33.33% 33.33% 33.33%;
+    -ms-grid-rows: auto auto auto auto auto auto auto auto auto auto;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .visible {
+    display: block;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .amb {
+    padding: 10px;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .amb-sala {
+    -ms-grid-row-span: 2;
+    -ms-grid-col-span: 2;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .amb-cocina {
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 2;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .amb-tip1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .amb-tip2 {
+    -ms-grid-column: 2;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .amb-baño {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 3;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .amb-dormitorio {
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 2;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .amb-lavanderia {
+    -ms-grid-row: 6;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .amb-comedor {
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 2;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .amb-oficina {
+    -ms-grid-row: 8;
+    -ms-grid-row-span: 2;
+    -ms-grid-column-span: 2;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .amb-tip3 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 3;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .amb-tip4 {
+    -ms-grid-row: 10;
+    -ms-grid-column-span: 2;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .amb-mueble {
+    -ms-grid-row: 9;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 3;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .title-item_middle {
+    top: 95%;
+    -webkit-transform: translate(-50%, -95%);
+        -ms-transform: translate(-50%, -95%);
+            transform: translate(-50%, -95%);
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .content-tip p:nth-child(1) {
+    text-transform: uppercase;
+    font-size: 1.1em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .content-tip p:nth-child(2) {
+    font-size: 1.1em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .content-tip .img-tip {
+    font-size: 1.2em;
+    margin-bottom: 1.2em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .content-tip .img-tip img {
+    width: auto;
+    margin-right: 20px;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .content-tip-lg {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .content-tip-lg .txt-tip {
+    width: 50%;
+    float: left;
+    position: relative;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .content-tip-lg .img-tip {
+    width: 50%;
+    float: left;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .tip-item {
+    padding: 30px;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .tip-item__green {
+    display: block;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .btn-item {
+    height: 50px;
+    width: 74%;
+    left: 13%;
+    letter-spacing: 1px;
+    font-size: 1.3em;
+    position: absolute;
+    bottom: 30px;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .guide-title img {
+    width: 30%;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .guide-title p {
+    display: block;
+    text-align: center;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .guide-title .title-deskt {
+    font-size: 1.1em;
+    line-height: 2em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .guide-title .subtitle-deskt {
+    font-size: 1.4em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .shopping-guide {
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    top: 45%;
+    margin: 0 auto;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .shopping-guide > p {
+    font-size: 1.1em;
+    line-height: 1.1em;
+  }
+
+  .RenuevaTuCasa_internal__collecctions .wrapper-blog {
+    padding: 0;
+  }
+
+  .RenuevaTuCasa_internal__collecctions .wrapper-blog .int {
+    margin: 10px;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna .hidden-item {
+    display: block;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__banner {
+    width: 86%;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__banner .int-title {
+    color: #fff;
+    font-size: 1.5em;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__banner .wrapper-title .title-banner p:nth-child(1) {
+    top: -400%;
+    width: 100%;
+    position: absolute;
+    text-decoration: none;
+    padding: 0;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__banner .wrapper-title .title-banner p:nth-child(1) :before {
+    content: '';
+    height: 1px;
+    position: absolute;
+    background: #fff;
+    width: 60%;
+    top: 135%;
+    left: 20%;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__banner .wrapper-title .title-banner p:nth-child(2) {
+    font-size: 3em;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .wrapper-blog {
+    width: 90%;
+    margin: 0 auto;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-areas: "int-a int-a int-b" "int-c int-c int-c" "int-g int-g int-g" "int-d int-d int-d" "int-e int-f int-f";
+    display: -ms-grid;
+    -ms-grid-columns: 33.33% 33.33% 33.33%;
+    -ms-grid-rows: auto auto auto auto auto;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int-a {
+    -ms-grid-column-span: 2;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int-b {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int-c {
+    -ms-grid-row: 2;
+    -ms-grid-column-span: 3;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int-g {
+    -ms-grid-row: 3;
+    -ms-grid-column-span: 3;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int-d {
+    -ms-grid-row: 4;
+    -ms-grid-column-span: 3;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int-e {
+    -ms-grid-row: 5;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int-f {
+    -ms-grid-row: 5;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int {
+    margin: 10px;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-tip {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-tip p:nth-child(1) {
+    font-size: 1.4em;
+    line-height: 1.5em;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-tip .img-tip,
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-tip .txt-tip {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-tip .txt-tip {
+    padding-left: 16%;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-tip .img-tip {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-tip .img-tip img {
+    width: 20%;
+    padding-right: 20px;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-item {
+    width: auto;
+    text-align: left;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-item p:nth-child(1) {
+    font-size: 2em;
+    line-height: 1.8em;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-item p:nth-child(2) {
+    font-size: 2.8em;
+    line-height: 0.8em;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity {
+    width: 95%;
+    margin: 0 auto;
+    height: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #fff;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .btn-green,
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .txt-tip {
+    width: 33.33% !important;
+    float: left;
+    position: relative;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .txt-tip {
+    width: 33.33%;
+    float: left;
+    position: relative;
+    font-size: 1.5em;
+    line-height: 1.3em;
+    padding-right: 40px;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .btn-green img,
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .img-tip img {
+    width: auto;
+    padding-bottom: 35px;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .img-tip {
+    width: 33.33%;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .img-tip p:nth-child(2) {
+    font-size: 1.4em;
+    line-height: 1.8em;
+    letter-spacing: 2px;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .img-tip p:nth-child(3) {
+    font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+    font-size: 1.7em;
+    line-height: 1.2em;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-item .wrapper-arrow,
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .wrapper-arrow {
+    right: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-item .wrapper-arrow span,
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .wrapper-arrow span {
+    font-size: 1.5em;
+    vertical-align: middle;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-item .wrapper-arrow_green,
+  .RenuevaTuCasa_internal__ambients-interna__blog .int .content-opacity .wrapper-arrow_green {
+    padding: 0 20px;
+    height: 70px;
+    width: 310px !important;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__options .wrapper-options {
+    width: 84.5%;
+    grid-template-rows: auto auto;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    margin: 0 auto 20px;
+    grid-template-areas: "int-a int-a int-b" "int-c int-d int-d";
+    -ms-grid-columns: 33.33% 33.33% 33.33%;
+    -ms-grid-rows: auto auto;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__options .int-a {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__options .int-b {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__options .int-c {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__options .int-d {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__options .title_ambients {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__options .title_ambients p {
+    font-size: 2.1em;
+    font-family: "RenuevaTuCasa-black", Helvetica, sans-serif;
+    color: #fff;
+  }
+
+  .RenuevaTuCasa_internal__ambients-interna__options .int {
+    margin: 10px;
+  }
+
+  .RenuevaTuCasa-content .tooltip-info {
+    background: #000;
+    color: #fff !important;
+    opacity: 0;
+    position: absolute;
+    bottom: 100%;
+    width: 260px;
+    margin-left: -60px;
+    visibility: hidden;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+  }
+
+  .RenuevaTuCasa-content .btn-scroll {
+    bottom: 140px;
+    height: 50px;
+    width: 50px;
+    right: 70px;
+  }
+
+  .RenuevaTuCasa-content .btn-action {
+    padding: 10px;
+    font-size: 1em;
+    text-align: right;
+    width: 300px;
+    margin-bottom: 35px;
+    margin-top: 35px;
+  }
+
+  .RenuevaTuCasa-content .btn-action span:nth-child(2) {
+    padding-bottom: 0;
+  }
+
+  .RenuevaTuCasa-content .btn-action-short {
+    width: 55%;
+    height: 62px;
+    font-size: 1.2em;
+  }
+
+  .RenuevaTuCasa-content .btn-action-alt {
+    width: 80%;
+    text-align: center;
+    height: 62px;
+    font-size: 1em;
+  }
+
+  .RenuevaTuCasa-content .btn-border {
+    width: 300px;
+    margin: 35px auto;
+    font-size: 1em;
+    padding: 10px;
+  }
+
+  .RenuevaTuCasa-content .btn-border:hover {
+    background: rgba(225, 51, 45, 0);
+  }
+
+  .RenuevaTuCasa-content .btn-border:hover rect {
+    stroke-dasharray: 35, 480;
+    stroke-dashoffset: 35;
+    -webkit-transition: all 1.75s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 1.75s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .RenuevaTuCasa-content .summary {
+    font-size: 1.3em;
+    line-height: 1.4em;
+    width: 90%;
+  }
+
+  .RenuevaTuCasa-content .pad-main {
+    padding: 0 10.5px;
+  }
+
+  .RenuevaTuCasa-content section[class^='RenuevaTuCasa__'] {
+    padding-top: 30px;
+  }
+
+  .RenuevaTuCasa-content section[data-tag='section'] {
+    padding-bottom: 0;
+    width: 85%;
+  }
+
+  .RenuevaTuCasa-content div[data-width='md'] {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .RenuevaTuCasa-content .title-section {
+    margin: 0 auto;
+    padding: 5px 15px;
+    margin-bottom: 30px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+
+  .RenuevaTuCasa-content .title-section::before {
+    width: 35%;
+    left: -35%;
+  }
+
+  .RenuevaTuCasa-content .title-section::after {
+    width: 35%;
+    right: -35%;
+  }
+
+  .RenuevaTuCasa-content .title-section p:nth-child(1) {
+    font-size: 1.5em;
+  }
+
+  .RenuevaTuCasa-content .title-section p:nth-child(2) {
+    font-size: 2.1em;
+    padding: 0;
+  }
+
+  .RenuevaTuCasa-content .title {
+    font-size: 1.2em;
+  }
+
+  .RenuevaTuCasa-content .title-item {
+    left: 50%;
+  }
+
+  .RenuevaTuCasa-content .title-item p:nth-child(1) {
+    font-size: 1em;
+    line-height: 1.2em;
+    padding-top: 0;
+  }
+
+  .RenuevaTuCasa-content .title-item p:nth-child(2) {
+    font-size: 1.4em;
+  }
+
+  .RenuevaTuCasa-content .title-item-one {
+    left: 0;
+  }
+
+  .RenuevaTuCasa-banner__wrapper {
+    background-attachment: fixed;
+    background-image: url("../img/banner/desktop/desktop.jpg");
+    height: 500px;
+  }
+
+  .RenuevaTuCasa-banner__wrapper .letter {
+    width: 40%;
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  .RenuevaTuCasa-banner__wrapper .letter p:nth-child(1) {
+    font-size: 2em;
+    line-height: 1.4em;
+    letter-spacing: 5px;
+  }
+
+  .RenuevaTuCasa-banner__wrapper .letter p:nth-child(2) {
+    font-size: 4.1em;
+    line-height: 1em;
+  }
+
+  .RenuevaTuCasa-banner__wrapper .letter p:nth-child(3) {
+    font-size: 1.5em;
+    line-height: 1.4em;
+  }
+
+  .RenuevaTuCasa-banner__wrapper .letter-modal {
+    -webkit-transform: translateY(-60px);
+    -ms-transform: translateY(-60px);
+    transform: translateY(-60px);
+    width: 100%;
+  }
+
+  .RenuevaTuCasa-banner__wrapper .letter-modal .letter p:nth-child(1) {
+    letter-spacing: 7px;
+  }
+
+  .RenuevaTuCasa-banner__wrapper .letter-modal p:nth-child(2) {
+    font-size: 4.7em;
+    line-height: 1em;
+    letter-spacing: 3px;
+  }
+
+  .RenuevaTuCasa__menu__wrapper {
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 8;
+    background: #fff;
+  }
+
+  .RenuevaTuCasa__menu__wrapper .slider-menu {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 60px 40px;
+  }
+
+  .RenuevaTuCasa__menu__wrapper .slider-menu .flickity-button {
+    background: rgba(255, 255, 255, 0.6);
+  }
+
+  .RenuevaTuCasa__menu__wrapper .slider-menu .flickity-prev-next-button {
+    width: 50px;
+    height: 50%;
+  }
+
+  .RenuevaTuCasa__menu__wrapper .slider-menu .flickity-prev-next-button.previous {
+    height: 50%;
+  }
+
+  .RenuevaTuCasa__menu__wrapper .slider-menu .flickity-prev-next-button.next {
+    height: 50%;
+  }
+
+  .RenuevaTuCasa__menu__wrapper .slider-menu .item-menu {
+    margin: 0 5px;
+    padding: 0;
+    width: 19.2%;
+  }
+
+  .RenuevaTuCasa__menu__wrapper .slider-menu .item-menu a .wrapper-icon-menu {
+    width: 100%;
+    padding: 0;
+    height: 100%;
+    border-radius: 0;
+    background: #fff;
+    border: 2px solid #fff;
+    padding: 5px;
+    border-radius: 100px;
+  }
+
+  .RenuevaTuCasa__menu__wrapper .slider-menu .item-menu a p {
+    margin-top: 15px;
+    font-size: 1.2em;
+    line-height: 16px;
+  }
+
+  .RenuevaTuCasa__categories__wrapper .grid-categories {
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto auto;
+    width: 95%;
+    margin: 0 auto;
+    display: -ms-grid;
+    -ms-grid-columns: 25% 25% 25% 25%;
+    -ms-grid-rows: auto auto;
+    grid-template-areas: "area-a area-b area-d area-d" "area-c area-b area-e area-f";
+  }
+
+  .RenuevaTuCasa__categories__wrapper .grid-categories .area-a {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa__categories__wrapper .grid-categories .area-b {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa__categories__wrapper .grid-categories .area-c {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa__categories__wrapper .grid-categories .area-d {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 2;
+  }
+
+  .RenuevaTuCasa__categories__wrapper .grid-categories .area-f {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa__categories__wrapper .grid-categories .area-e {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+  }
+
+  .RenuevaTuCasa__categories__wrapper .item-category img {
+    padding: 10px;
+  }
+
+  .RenuevaTuCasa__categories__wrapper .wrapper-title {
+    visibility: hidden;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    position: absolute;
+    height: auto;
+    top: 50%;
+    color: #fff;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+
+  .RenuevaTuCasa__categories__wrapper .rectangle {
+    height: -webkit-calc(100% - 0px);
+    height: calc(100% - 0px);
+  }
+
+  .RenuevaTuCasa__categories__wrapper .item-category:hover img,
+  .RenuevaTuCasa__categories__wrapper .rectangle:hover img {
+    -webkit-filter: blur(2px) brightness(80%);
+            filter: blur(2px) brightness(80%);
+    -webkit-box-shadow: 0 0 16px #fff;
+            box-shadow: 0 0 16px #fff;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+
+  .RenuevaTuCasa__categories__wrapper #title-rectangle:hover .wrapper-title,
+  .RenuevaTuCasa__categories__wrapper .item-category:hover .wrapper-title {
+    visibility: visible;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    font-size: 14px;
+    color: #fff;
+  }
+
+  .RenuevaTuCasa__newest__wrapper .title-product p:nth-child(3) {
+    font-size: 1.7em;
+    line-height: 1.7em;
+  }
+
+  .RenuevaTuCasa__newest__wrapper .combo-imbatible {
+    width: 100px;
+    top: 68%;
+    left: 53%;
+  }
+
+  .RenuevaTuCasa__newest__wrapper .item-product {
+    height: 250px;
+  }
+
+  .RenuevaTuCasa__newest__wrapper .carousel-product {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .RenuevaTuCasa__newest__wrapper .carousel-product .flickity-button {
+    background: #fff;
+  }
+
+  .RenuevaTuCasa__newest__wrapper .carousel-product .flickity-prev-next-button {
+    width: 50px;
+  }
+
+  .RenuevaTuCasa__newest__wrapper .carousel-product .flickity-prev-next-button.previous {
+    top: 37%;
+    left: -7%;
+    height: 50%;
+  }
+
+  .RenuevaTuCasa__newest__wrapper .carousel-product .flickity-prev-next-button.next {
+    top: 37%;
+    right: -7%;
+    height: 50%;
+  }
+
+  .RenuevaTuCasa__yourstyle__wrapper {
+    padding-bottom: 35px !important;
+  }
+
+  .RenuevaTuCasa__showroom__wrapper {
+    padding-bottom: 35px !important;
+  }
+
+  .RenuevaTuCasa__shops__wrapper {
+    width: 77.7% !important;
+    margin: 0 auto;
+    padding-bottom: 35px;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .r-table {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .store {
+    margin: 0 auto;
+    background: #F2F2F2;
+    margin-bottom: 30px;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .store .slick-arrow {
+    width: 60px;
+    height: 110px;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    background-size: 70%;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .store .slick-arrow.slick-next {
+    right: -50%;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .store .item-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 10px 0;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .store .text-info {
+    text-align: left;
+    padding-right: 60px;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .store .text-info p:nth-child(1) {
+    font-size: 1.5em;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .store .text-info p:nth-child(2) {
+    font-size: 1.1em;
+    line-height: 1.1em;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .list-store {
+    width: 100%;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .list-store .head-list {
+    text-align: left;
+    border: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    min-height: 120px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-right: 1px solid #D7D5D3;
+    padding: 0 0 0 30px;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .list-store .head-list span:nth-child(1) {
+    font-size: 1.4em;
+    font-weight: 300;
+    line-height: 2em;
+    color: #000;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .list-store .head-list span:nth-child(2) {
+    font-size: 1.8em;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .list-store .br-left {
+    border-right: 1px solid #D7D5D3;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .list-store .item-info-store {
+    border: none;
+    padding: 10px;
+    min-height: 120px;
+    border-right: 1px solid #D7D5D3;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .list-store .item-info-store:hover {
+    background: #F2F2F2;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .list-store .item-info-store .title-store {
+    line-height: 2em;
+    font-size: 1.2em;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .list-store .item-info-store .district-store {
+    font-size: 1.4em;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .list-store .item-info-store .btn-detail {
+    font-size: 2.4em;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .list-store .item-info-store:hover .tooltip-info {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .RenuevaTuCasa_internal .btn-border {
+    width: 430px;
+    margin: 40px auto 10px;
+    font-size: 1.7em;
+    padding: 0;
+    height: 70px;
+  }
+
+  .RenuevaTuCasa_internal .btn-border:hover {
+    background: rgba(225, 51, 45, 0);
+  }
+
+  .RenuevaTuCasa_internal .btn-border:hover rect {
+    stroke-dasharray: 35, 480;
+    stroke-dashoffset: 35;
+    -webkit-transition: all 1.75s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 1.75s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .RenuevaTuCasa_internal .title-section {
+    width: 35%;
+    margin: 0 auto;
+    display: inline-block;
+    padding: 15px;
+    margin-top: 30px;
+    margin-bottom: 0;
+    width: auto;
+  }
+
+  .RenuevaTuCasa_internal .title-section::before {
+    width: 230px;
+    left: -290px;
+  }
+
+  .RenuevaTuCasa_internal .title-section::after {
+    width: 230px;
+    right: -290px;
+  }
+
+  .RenuevaTuCasa_internal .title-section p:nth-child(1) {
+    font-size: 1.5em;
+  }
+
+  .RenuevaTuCasa_internal .title-section p:nth-child(2) {
+    font-size: 3em;
+    padding-top: 10px;
+  }
+
+  .RenuevaTuCasa_internal .text-section {
+    font-size: 1.6em;
+  }
+
+  .RenuevaTuCasa_internal__header .title-section:nth-child(2) {
+    margin: 0;
+    padding: 0;
+  }
+
+  .RenuevaTuCasa_internal__header .header-content {
+    height: 115px;
+    width: 100%;
+    z-index: 19;
+  }
+
+  .RenuevaTuCasa_internal__header .header-content .letter {
+    padding: 0;
+    width: 80%;
+  }
+
+  .RenuevaTuCasa_internal__header .header-content .letter p:nth-child(1) {
+    line-height: 1.4em;
+    letter-spacing: 5px;
+    display: inline;
+  }
+
+  .RenuevaTuCasa_internal__header .header-content .letter p:nth-child(2) {
+    font-size: 2.1em;
+    line-height: 1em;
+    display: inline;
+  }
+
+  .RenuevaTuCasa_internal__ambients,
+  .RenuevaTuCasa_internal__ambients-interna,
+  .RenuevaTuCasa_internal__brands,
+  .RenuevaTuCasa_internal__categories,
+  .RenuevaTuCasa_internal__collecctions {
+    width: 80.5%;
+  }
+
+  .RenuevaTuCasa_internal__footer {
+    width: 79%;
+    padding: 0;
+    padding-bottom: 10px;
+    margin: 0 auto 40px;
+  }
+
+  .RenuevaTuCasa_internal__footer .title-footer {
+    left: 50%;
+    height: 100%;
+  }
+
+  .RenuevaTuCasa_internal__footer .title-footer p:nth-child(1) {
+    font-size: 1em;
+    line-height: 1.2em;
+    padding-top: 0;
+  }
+
+  .RenuevaTuCasa_internal__footer .title-footer p:nth-child(2) {
+    font-size: 1.4em;
+  }
+
+  .RenuevaTuCasa_internal__footer .title-footer-one {
+    left: 0;
+  }
+
+  .RenuevaTuCasa_internal__footer .btn-action {
+    padding: 10px;
+    font-size: 1.2em;
+    height: 70px;
+    text-align: center;
+    width: 300px;
+    margin-bottom: 35px;
+    margin-top: 35px;
+  }
+
+  .RenuevaTuCasa_internal__footer .slider-footer {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .RenuevaTuCasa_internal__footer .slider-footer .flickity-page-dots {
+    display: none;
+  }
+
+  .RenuevaTuCasa_internal__footer .slider-footer .flickity-prev-next-button {
+    width: 50px;
+  }
+
+  .RenuevaTuCasa_internal__footer .slider-footer .flickity-prev-next-button.next {
+    top: 50%;
+    right: 0;
+    height: 110px;
+    width: 62px;
+  }
+
+  .RenuevaTuCasa_internal__footer .slider-footer .item-footer {
+    width: 45%;
+    height: auto;
+  }
+
+  .fancy-btn p {
+    font-weight: 800;
+  }
+
+  .fancy-btn {
+    top: 160px;
+    right: 150px;
+  }
+
+  .fancy-btn.topMenu {
+    top: 60px;
+    -webkit-transition: 0.3s all;
+    transition: 0.3s all;
+  }
+
+  div #menu-main .modal-dialog {
+    width: 100%;
+  }
+
+  div #menu-main .list-menu {
+    font-size: 1.2em;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+
+  div #menu-main .list-menu li {
+    padding: 0.6em;
+    text-align: left;
+  }
+
+  div #menu-main .modal-body {
+    padding: 0 50px !important;
+  }
+
+  div #menu-main .close {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 40px !important;
+    top: 25px;
+    right: 90px;
+  }
+
+  #menu-main .letter {
+    padding: 35px;
+    width: 27%;
+    -webkit-transform: translateY(45px);
+        -ms-transform: translateY(45px);
+            transform: translateY(45px);
+  }
+
+  #menu-main .letter p:nth-child(1) {
+    font-size: 2em;
+    line-height: 1.4em;
+    letter-spacing: 5px;
+  }
+
+  #menu-main .letter p:nth-child(2) {
+    font-size: 4.1em;
+    line-height: 1em;
+  }
+
+  #menu-main .letter p:nth-child(3) {
+    font-size: 1.5em;
+    line-height: 1.4em;
+  }
+
+  #menu-main .letter-modal {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -30%);
+    -ms-transform: translate(-50%, -30%);
+    transform: translate(-50%, -30%);
+    width: 100%;
+  }
+
+  #menu-main .letter-modal .letter p:nth-child(1) {
+    letter-spacing: 7px;
+  }
+
+  #menu-main .letter-modal p:nth-child(2) {
+    font-size: 4.7em;
+    line-height: 1em;
+    letter-spacing: 3px;
+  }
+}
+
+@media (min-width: 992px) and (min-width: 992px) {
+  .RenuevaTuCasa_internal__ambients .grid-ambients .content-tip-lg .img-tip {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+@media (min-width: 1200px) {
+  .bg-opacity .content-item p:nth-child(1) {
+    font-size: 2em;
+    line-height: 1.8em;
+  }
+
+  .bg-opacity .content-item p:nth-child(2) {
+    font-size: 2.8em;
+    line-height: 0.8em;
+  }
+
+  .bg-opacity .content-item_home p:nth-child(1) {
+    font-size: 1.2em;
+    line-height: 1.8em;
+  }
+
+  .bg-opacity .content-item_home p:nth-child(2) {
+    font-size: 1.4em;
+    line-height: 1em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .content-tip p:nth-child(1) {
+    text-transform: uppercase;
+    font-size: 1.3em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .content-tip p:nth-child(2) {
+    font-size: 1.5em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .btn-item {
+    height: 70px;
+    font-size: 1.5em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .guide-title img {
+    width: auto;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .guide-title .title-deskt {
+    font-size: 1.6em;
+    letter-spacing: 1px;
+    line-height: 2em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .guide-title .subtitle-deskt {
+    font-size: 2em;
+  }
+
+  .RenuevaTuCasa_internal__ambients .grid-ambients .shopping-guide > p {
+    font-size: 1.6em;
+    line-height: 1.3em;
+  }
+
+  .RenuevaTuCasa-banner__wrapper .letter {
+    padding: 35px;
+    width: 29%;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .store .text-info {
+    text-align: left;
+    padding-right: 55px;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .store .text-info p:nth-child(1) {
+    font-size: 2em;
+  }
+
+  .RenuevaTuCasa__shops__wrapper .store .text-info p:nth-child(2) {
+    font-size: 1.3em;
+  }
+
+  div #menu-main .list-menu {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 999px) {
+  .hidden-lg,
+  .hidden-md {
+    display: none !important;
+  }
+}
+
+@media (max-width: 999px) and (min-width: 992px) {
+  .hidden-sm,
+  .hidden-xs {
+    display: block;
+  }
+}
