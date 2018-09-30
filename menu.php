@@ -4,11 +4,14 @@
         <p>ambientes</p>
     </div>
     <div class="slider-menu">
-      <?php wp_nav_menu(array(
-        'container' => false,
-        'items_wrap' => '<ul id="menu-top">%3$s</ul>' , 
-        'theme_location' => 'menu'
-      ));?>
+      <?php
+      wp_nav_menu(array(
+        'theme_location' => 'menu',
+        'container_class' => 'collapse navbar-collapse',
+        'container_id' => 'navbar',
+        'menu_class' => 'nav navbar-nav navbar-right'
+      ));
+      ?>
         <div class="item-menu">
             <a class="" href="#">
                 <div class="wrapper-icon-menu">
