@@ -33,18 +33,3 @@
            include(TEMPLATEPATH. '/menu.php');
         ?>
      </section>
-     <div class="title-post">
-       <?php
-         $args = array(
-           'post_per_page' => 12
-         );
-         $entrada = new WP_Query($args);
-         while($entrada->have_posts()) : $entrada -> the_post();
-
-
-         the_title('<h2 class="variable">','</h2>');
-
-       endwhile;
-       wp_reset_postdata();
-       ?>
-     </div>
