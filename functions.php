@@ -10,12 +10,12 @@ function add_myStyles(){
     wp_enqueue_script('jquery');
     wp_enqueue_script('plugins',get_stylesheet_directory_uri() . '/js/plugins.min.js',array('jquery'),'3.3.2',true);
     wp_enqueue_script('core',get_stylesheet_directory_uri() . '/js/core.min.js',array('jquery'),'3.3.6',true);
-
 }
 
 // hook me permite meter mi codigo en wordpress
 add_action('wp_enqueue_scripts', 'add_myStyles');
 add_theme_support('post-thumbnails');
+add_image_size('RenuevaTuCasa_image_slide',120,120,true);
 
 function renuevaTuCasa_post_type() {
   register_post_type('RenuevaTuCasa_slider',
@@ -34,8 +34,8 @@ function renuevaTuCasa_post_type() {
      'show_in_nav_menus' => false ,
      'menu_icon' => 'dashicons-slides',
      'supports' => array('title' , 'editor' , 'thumbnail')
-   )
-);
+     )
+  );
 }
 add_action('init','renuevaTuCasa_post_type');
 ?>

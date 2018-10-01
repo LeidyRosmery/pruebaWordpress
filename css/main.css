@@ -1924,7 +1924,8 @@ footer .line-service {
 
 .RenuevaTuCasa-content .title-section p:nth-child(1) {
   padding: 0;
-  font-size: 1.2em;
+  margin:0;
+  font-size: 1em;
   line-height: 1.2em;
   letter-spacing: 2px;
 }
@@ -2201,7 +2202,7 @@ footer .line-service {
 }
 
 .RenuevaTuCasa__menu__wrapper .slider-menu .item-menu a p {
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1.2em;
   text-transform: uppercase;
   font-weight: bold;
@@ -3002,7 +3003,7 @@ div #menu-main .close {
 
 #menu-main .letter p:nth-child(3) {
   line-height: 1.2em;
-  font-size: 1.1em;
+  font-size: .9em;
   padding: 10px 0 0;
 }
 

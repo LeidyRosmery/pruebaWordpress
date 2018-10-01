@@ -9,12 +9,3 @@ Author URL: mi direccion web www.altimea.com
 body{
   margin:0;
 }
-.RenuevaTuCasa-banner__wrapper {
-  height: 415px;
-  background-image: url("../img/banner/mobile/banner-mobile.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 100%;
-  width: 100%;
-  position: relative;
-}

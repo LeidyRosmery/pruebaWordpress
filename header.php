@@ -10,9 +10,14 @@
 
    </head>
    <body>
-     <?php $destacada = wp_get_attachment_image_src(get_post_thumbnail_id(),'full'); ?>
-     <?php $destacada = $destacada[0]; ?>
-     <header class="RenuevaTuCasa-banner__wrapper" style="background-image:url(<?php echo $destacada;?>)">
+     <section class="RenuevaTuCasa-content">
+        <?php
+           $destacada = wp_get_attachment_image_src(get_post_thumbnail_id(),'full');
+        ?>
+        <?php
+           $destacada = $destacada[0];
+        ?>
+           <header class="RenuevaTuCasa-banner__wrapper" style="background-image:url(<?php echo $destacada;?>)">
        <div class="letter">
            <p>RENUEVA</p>
            <p class="title"> TU CASA </p>
@@ -23,7 +28,23 @@
                <span class="mouse-movement"></span>
            </div>
        </div>
-   </header>
+      </header>
+        <?php
+           include(TEMPLATEPATH. '/menu.php');
+        ?>
+     </section>
+     <div class="title-post">
+       <?php
+         $args = array(
+           'post_per_page' => 12
+         );
+         $entrada = new WP_Query($args);
+         while($entrada->have_posts()) : $entrada -> the_post();
 
-     <?php include(TEMPLATEPATH. '/menu.php');?>
-       </section>
+
+         the_title('<h2 class="variable">','</h2>');
+
+       endwhile;
+       wp_reset_postdata();
+       ?>
+     </div>
