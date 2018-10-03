@@ -8,76 +8,41 @@
     <div class="store">
         <div class="r-table row margin-0">
             <div class="c-table col-xs-12  col-md-8 padding-0 ">
-                <div class="slider-imgStore">
-                    <div class="item-img">
-                        <img class="img-responsive" src="/static/categorias/contenidoEstatico/landings/landingRenuevaCasa2018/assets/img/tiendas/store1.jpg" alt="">
-                    </div>
-                    <div class="item-img">
-                        <img class="img-responsive" src="/static/categorias/contenidoEstatico/landings/landingRenuevaCasa2018/assets/img/tiendas/store2.jpg" alt="">
-                    </div>
-                    <div class="item-img">
-                        <img class="img-responsive" src="/static/categorias/contenidoEstatico/landings/landingRenuevaCasa2018/assets/img/tiendas/store3.jpg" alt="">
-                    </div>
-                    <div class="item-img">
-                        <img class="img-responsive" src="/static/categorias/contenidoEstatico/landings/landingRenuevaCasa2018/assets/img/tiendas/store4.jpg" alt="">
-                    </div>
-                </div>
+            <?php
+            $args = array(
+              'post_type' => 'RenuevaTuCasa_store' ,
+              'post_per_page' => 4
+            );
+            $the_query = new WP_Query( $args ); ?>
+            <?php if ( $the_query->have_posts() ) : ?>
+            <div class="slider-imgStore">
+	          <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+              <div class="item-img">
+                <?php the_post_thumbnail($the_query -> ID,['class' => 'img-responsive ', 'title' => 'Feature image']);?>
+              </div>
+	          <?php endwhile; ?>
+            </div>
+	          <?php wp_reset_postdata(); ?>
+            <?php endif; ?>
             </div>
             <div class="c-table col-xs-12 col-md-4 padding-0">
+              <?php
+              $args2 = array(
+                'post_type' => 'RenuevaTuCasa_text' ,
+                'post_per_page' => 4
+              );
+                $the_query2 = new WP_Query( $args2 ); ?>
+                <?php if ( $the_query2->have_posts() ) : ?>
                 <div class="slider-infoStore">
+                    <?php while ( $the_query2->have_posts() ) : $the_query2->the_post(); ?>
                     <div class="item-info">
-                        <div class="text-info text-center col-xs-6  col-md-12 padding-0">
-                            <p> +1000</p>
-                            <p>productos de Línea Blanca</p>
-                        </div>
-                        <div class="text-info text-center col-xs-6  col-md-12 padding-0">
-                            <p>+1000</p>
-                            <p>modelos de pisos y <br class="hidden-md hidden-lg"> revestimientos de paredes</p>
-                        </div>
-                        <div class="text-info text-center col-xs-12  col-md-12 padding-0">
-                            <p>Exhibiciones</p>
-                            <p> orientadas a los ambientes de la casa</p>
-                        </div>
+                      <?php the_content(); ?>
                     </div>
-                    <div class="item-info">
-                        <div class=" text-info text-center col-xs-6  col-md-12 padding-0">
-                            <p> +400</p>
-                            <p>modelos de cortinas</p>
-                        </div>
-                        <div class=" text-info text-center col-xs-6  col-md-12 padding-0">
-                            <p>+2000</p>
-                            <p>variedades en muebles</p>
-                        </div>
-                        <div class=" text-info text-center col-xs-12  col-md-12 padding-0">
-                            <p>Asesoramiento </p>
-                            <p>total en compra de productos y servicios</p>
-
-                        </div>
+                    <?php endwhile; ?>
                     </div>
-                    <div class="item-info">
-                        <div class="text-info  col-xs-6  col-md-12 padding-0">
-                            <p>+1000</p>
-                            <p>productos en decoración</p>
-                        </div>
-                        <div class="text-info  col-xs-6  col-md-12 padding-0">
-                            <p>+200</p>
-                            <p>modelos de parrillas y accesorios</p>
-                        </div>
-                        <div class="text-info  col-xs-12  col-md-12 padding-0">
-                            <p>Proyectos </p>
-                            <p>temáticos para mejorar tu hogar</p>
-                        </div>
-                    </div>
-                    <div class="item-info">
-                        <div class="text-info  col-xs-12  col-md-12 padding-0">
-                            <p>Compra </p>
-                            <p>en línea y retira en tienda</p>
-                        </div>
-                        <div class="text-info  col-xs-12  col-md-12 padding-0">
-                            <p>Próximamente</p>
-                            <p> en Trujillo, Chiclayo, Arequipa y Ate</p>
-                        </div>
-                    </div>
+                    <?php wp_reset_postdata(); ?>
+                  </div>
+                <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -99,7 +64,7 @@
                         <div class="tooltip-info ">
                             <div class="row margin-0">
                                 <div class="col-xs-2 padding-0">
-                                    <img class="lg-store img-responsive" src="/static/categorias/contenidoEstatico/landings/landingRenuevaCasa2018/assets/img/tiendas/icons/white/mark.png" alt="">
+                                    <img class="lg-store img-responsive" src="<?php bloginfo('template_url')?>/img/tiendas/icons/white/mark.png" alt="">
                                 </div>
                                 <div class="inf-detail col-xs-10 padding-0">
                                     <p>Av.Javier PRado Este 4200</p>
@@ -126,7 +91,7 @@
                         <div class="tooltip-info">
                             <div class="row margin-0">
                                 <div class="col-xs-2 padding-0">
-                                    <img class="lg-store img-responsive" src="/static/categorias/contenidoEstatico/landings/landingRenuevaCasa2018/assets/img/tiendas/icons/white/mark.png" alt="">
+                                    <img class="lg-store img-responsive" src="img" alt="">
                                 </div>
                                 <div class="inf-detail col-xs-10 padding-0">
                                     <p>Av.Javier PRado Este 4200</p>
@@ -252,7 +217,6 @@
                 </div>
             </div>
         </div>
-
     </div>
   </section>
 </section>
